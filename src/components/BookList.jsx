@@ -1,20 +1,17 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import SingleBook from "./SingleBook";
+import { Container, Row, Col } from 'react-bootstrap';
+import SingleBook from './SingleBook';
+import books from '../data/fantasy.json'
 
-function BookList(props) {
-    const { books } = props;
-    return (
-        <Container>
-            <Row>
-                {books.map((book, index) => (
-                    <Col key={index}>
-                        <SingleBook book={book} />
-                    </Col>
-                ))}
-            </Row>
-        </Container>
-    );
-}
+const BookList = (props) => (
+    <Container>
+        <Row className='g-4'>
+            {props.books.map((elemento, index) => (
+                <Col key={`elemento-${index}`}>
+                    <SingleBook books={elemento}/>
+                </Col>
+            ))}
+        </Row>
+    </Container>
+);
 
 export default BookList;
